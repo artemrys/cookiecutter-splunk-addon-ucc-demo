@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+jobs:
+  update-from-latest-cookiecutter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.7"
+      - run: |
+          pip install cookiecutter
+          cookiecutter --no-input gh:artemrys/cookiecutter-splunk-addon-ucc addon_author="Artem Rys" addon_author_email=email@example.com addon_author_company="Splunk, Inc"
+
+          git config --global user.name github-actions
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add .
+          git commit -m "chore: update from latest cookiecutter" || echo "No changes to commit"
+          git push
