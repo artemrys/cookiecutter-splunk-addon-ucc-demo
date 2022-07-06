@@ -12,6 +12,7 @@ jobs:
           python-version: "3.7"
       - run: |
           pip install cookiecutter
+          rm -rf demo
           cookiecutter --no-input gh:artemrys/cookiecutter-splunk-addon-ucc addon_author="Artem Rys" addon_author_email=email@example.com addon_author_company="Splunk, Inc"
 
           git config --global user.name github-actions
