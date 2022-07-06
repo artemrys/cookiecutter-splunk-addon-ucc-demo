@@ -1,3 +1,0 @@
-[demo://<name>]
-interval = 
-index = 

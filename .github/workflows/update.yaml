@@ -14,8 +14,6 @@ jobs:
           pip install cookiecutter
           rm -rf demo
           cookiecutter --no-input gh:artemrys/cookiecutter-splunk-addon-ucc addon_author="Artem Rys" addon_author_email=email@example.com addon_author_company="Splunk, Inc"
-          mv demo/* .
-          rm -rf demo
 
           git config --global user.name github-actions
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
